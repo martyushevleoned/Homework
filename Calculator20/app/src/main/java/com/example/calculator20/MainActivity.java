@@ -44,15 +44,67 @@ public class MainActivity extends AppCompatActivity {
     Boolean secondPointPress = false;
 
     int stage = 0;
+    int help;
 
     /*
      * stage 0 enter first number
      * stage 0 enter sign
      * stage 1 enter second number
      * stage 2 equal
+     * stage 3 error
      */
 
-    //public static int firstPart(int n, int plus){}
+    public String num1(String plus){
+
+        if (stage == 0) {
+            firstNumber += plus;
+            ((Button) findViewById(display)).setText(firstNumber);
+        }
+
+        return firstNumber;
+    }
+
+    public String num2(String plus){
+
+        if (stage == 1) {
+            secondNumber += plus;
+            ((Button) findViewById(display)).setText(firstNumber + " " + stringSign + " " + secondNumber);
+        }
+
+        return secondNumber;
+    }
+
+    public void signResult(String sign){
+
+        if (stage == 2){
+
+            stage = 1;
+
+            secondNumber = "";
+
+            firstNumberDouble = 0;
+            secondNumberDouble = 0;
+
+            stringSign = sign;
+
+            result = 0;
+            intResult = 0;
+
+            firstPointPress = false;
+            secondPointPress = false;
+
+            ((Button) findViewById(display)).setText(firstNumber + " " + stringSign + " " + secondNumber);
+        }
+    }
+
+    public void sign(String sign){
+
+        if (stage == 0 && firstNumber != "" && firstNumber != "-"){
+            stringSign = sign;
+            ((Button) findViewById(display)).setText(firstNumber + " " + stringSign);
+            stage++;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +143,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                firstNumber = num1("0");
+                secondNumber = num2("0");
+                /*
                 if (stage == 0){
                     firstNumber += "0";
                     ((Button) findViewById(display)).setText(firstNumber);
@@ -100,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     secondNumber += "0";
                     ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
                 }
+                */
             }
         });
 
@@ -107,15 +163,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0){
-                    firstNumber += "1";
-                    ((Button) findViewById(display)).setText(firstNumber);
-                }
-
-                if (stage == 1){
-                    secondNumber += "1";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                firstNumber = num1("1");
+                secondNumber = num2("1");
             }
         });
 
@@ -123,15 +172,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0){
-                    firstNumber += "2";
-                    ((Button) findViewById(display)).setText(firstNumber);
-                }
-
-                if (stage == 1){
-                    secondNumber += "2";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                firstNumber = num1("2");
+                secondNumber = num2("2");
             }
         });
 
@@ -139,15 +181,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0){
-                    firstNumber += "3";
-                    ((Button) findViewById(display)).setText(firstNumber);
-                }
-
-                if (stage == 1){
-                    secondNumber += "3";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                firstNumber = num1("3");
+                secondNumber = num2("3");
             }
         });
 
@@ -155,15 +190,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0){
-                    firstNumber += "4";
-                    ((Button) findViewById(display)).setText(firstNumber);
-                }
-
-                if (stage == 1){
-                    secondNumber += "4";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                firstNumber = num1("4");
+                secondNumber = num2("4");
             }
         });
 
@@ -171,15 +199,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0){
-                    firstNumber += "5";
-                    ((Button) findViewById(display)).setText(firstNumber);
-                }
-
-                if (stage == 1){
-                    secondNumber += "5";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                firstNumber = num1("5");
+                secondNumber = num2("5");
             }
         });
 
@@ -187,15 +208,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0){
-                    firstNumber += "6";
-                    ((Button) findViewById(display)).setText(firstNumber);
-                }
-
-                if (stage == 1){
-                    secondNumber += "6";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                firstNumber = num1("6");
+                secondNumber = num2("6");
             }
         });
 
@@ -203,15 +217,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0){
-                    firstNumber += "7";
-                    ((Button) findViewById(display)).setText(firstNumber);
-                }
-
-                if (stage == 1){
-                    secondNumber += "7";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                firstNumber = num1("7");
+                secondNumber = num2("7");
             }
         });
 
@@ -219,15 +226,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0){
-                    firstNumber += "8";
-                    ((Button) findViewById(display)).setText(firstNumber);
-                }
-
-                if (stage == 1){
-                    secondNumber += "8";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                firstNumber = num1("8");
+                secondNumber = num2("8");
             }
         });
 
@@ -235,15 +235,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0){
-                    firstNumber += "9";
-                    ((Button) findViewById(display)).setText(firstNumber);
-                }
-
-                if (stage == 1){
-                    secondNumber += "9";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                firstNumber = num1("9");
+                secondNumber = num2("9");
             }
         });
 
@@ -252,14 +245,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (stage == 0 && firstPointPress == false && firstNumber != ""){
-                    firstNumber += ".";
-                    ((Button) findViewById(display)).setText(firstNumber);
+
+                    if (firstNumber == "-"){
+                        firstNumber = num1("0.");
+                    } else {
+                        firstNumber = num1(".");
+                    }
                     firstPointPress = true;
                 }
 
                 if (stage == 1 && secondPointPress == false && secondNumber != ""){
-                    secondNumber += ".";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
+
+                    if (secondNumber == "-"){
+                        secondNumber = num2("0.");
+                    } else {
+                        secondNumber = num2(".");
+                    }
                     secondPointPress = true;
                 }
             }
@@ -269,12 +270,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0 && firstNumber != ""){
+                sign("+");
+/*
+                if (stage == 0 && firstNumber != "" && firstNumber != "-"){
                     stringSign = "+";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign);
+                    ((Button) findViewById(display)).setText(firstNumber + " " + stringSign);
                     stage++;
                 }
-
+*/
+                signResult("+");
+/*
                 if (stage == 2){
 
                     stage = 1;
@@ -292,8 +297,9 @@ public class MainActivity extends AppCompatActivity {
                     firstPointPress = false;
                     secondPointPress = false;
 
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
+                    ((Button) findViewById(display)).setText(firstNumber + " " + stringSign + " " + secondNumber);
                 }
+*/
             }
         });
 
@@ -301,32 +307,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0 && firstNumber != ""){
-                    stringSign = "-";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign);
-                    stage++;
+                if (stage == 0 && firstNumber == ""){
+                    firstNumber = "-";
+                    ((Button) findViewById(display)).setText(firstNumber);
                 }
 
-
-                if (stage == 2){
-
-                    stage = 1;
-
-                    secondNumber = "";
-
-                    firstNumberDouble = 0;
-                    secondNumberDouble = 0;
-
-                    stringSign = "-";
-
-                    result = 0;
-                    intResult = 0;
-
-                    firstPointPress = false;
-                    secondPointPress = false;
-
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
+                if (stage == 1 && secondNumber == ""){
+                    secondNumber = "-";
+                    ((Button) findViewById(display)).setText(firstNumber + " " + stringSign + " " + secondNumber);
                 }
+
+                sign("-");
+                signResult("-");
             }
         });
 
@@ -334,31 +326,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0 && firstNumber != ""){
-                    stringSign = "*";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign);
-                    stage++;
-                }
-
-                if (stage == 2){
-
-                    stage = 1;
-
-                    secondNumber = "";
-
-                    firstNumberDouble = 0;
-                    secondNumberDouble = 0;
-
-                    stringSign = "*";
-
-                    result = 0;
-                    intResult = 0;
-
-                    firstPointPress = false;
-                    secondPointPress = false;
-
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                sign("*");
+                signResult("*");
             }
         });
 
@@ -366,31 +335,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (stage == 0 && firstNumber != ""){
-                    stringSign = "/";
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign);
-                    stage++;
-                }
-
-                if (stage == 2){
-
-                    stage = 1;
-
-                    secondNumber = "";
-
-                    firstNumberDouble = 0;
-                    secondNumberDouble = 0;
-
-                    stringSign = "/";
-
-                    result = 0;
-                    intResult = 0;
-
-                    firstPointPress = false;
-                    secondPointPress = false;
-
-                    ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber);
-                }
+                sign("/");
+                signResult("/");
             }
         });
 
@@ -420,24 +366,31 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
 
-                    result = result * 1000;
-                    int help = (int) Math.round(result);
-                    result = (double)help / 1000;
+                    if (secondNumberDouble != 0 || stringSign != "/") {
 
-                    if (result % 1 == 0){
-                        intResult = (int)result;
-                        ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber + "=" + intResult);
-                        firstNumber = "" + intResult;
-                    }else{
-                        ((Button) findViewById(display)).setText(firstNumber + stringSign + secondNumber + "=" + result);
-                        firstNumber = "" + result;
+                        result = result * 10000;
+                        help = (int) Math.round(result);
+                        result = (double)help / 10000;
+
                     }
 
+                    if (result % 1 == 0) {
+                        intResult = (int) result;
+                        ((Button) findViewById(display)).setText(firstNumber + " " + stringSign + " " + secondNumber + " = " + intResult);
+                        firstNumber = "" + intResult;
+                    } else {
 
+                        if (secondNumberDouble == 0 && stringSign == "/") {
+                            ((Button) findViewById(display)).setText(firstNumber + " " + stringSign + " " + secondNumber + " = error");
+                            stage++;
+                            //firstNumber = "";
+                        } else {
+                            ((Button) findViewById(display)).setText(firstNumber + " " + stringSign + " " + secondNumber + " = " + result);
+                            firstNumber = "" + result;
+                        }
+                    }
                 }
-
             }
         });
-
     }
 }
